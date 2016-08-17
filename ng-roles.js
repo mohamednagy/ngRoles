@@ -1,19 +1,19 @@
 angular.module('ngRoles', []).provider('ngRoles', function(){
 
-  this.allRoles = [];
+  this.roles = [];
 
   this.$get = function(rolesService){
-    rolesService.setAllRoles(this.allRoles);
+    rolesService.setAllRoles(this.roles);
     return rolesService;
   };
 
 }).service('rolesService',[function(){
 
-  this.allRoles = [];
+  this.roles = [];
   this.userRole = null;
 
-  this.setAllRoles = function(allRoles){
-    this.allRoles = allRoles;
+  this.setAllRoles = function(roles){
+    this.roles = roles;
   };
 
   this.setUserRole = function(role){
