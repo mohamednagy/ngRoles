@@ -11,6 +11,25 @@ angular.module('ngRoles', []).provider('ngRoles', function(){
 
   this.roles = [];
   this.userRole = null;
+  this.permissions = [];
+
+  this.setPermissions = function(perms){
+    this.permissions = perms;
+  };
+
+
+  this.hasPermissions = function(permissions){
+    for (var i = 0; i < permissions.length; i++) {
+      if(this.hasPermission(permissions[i]) !== true){
+        return false;
+      }
+    }
+    return true;
+  };
+
+  this.hasPermission = function(permission){
+    return this.permissions.indexOf(permission) === -1 ? false : true;
+  };
 
   this.setAllRoles = function(roles){
     this.roles = roles;
